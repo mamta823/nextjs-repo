@@ -12,11 +12,11 @@ export default async function Home() {
 async function fetchBlogs(){
 const options={
   headers:{
-    Authorization:`Bearer ${process.env.STRAPI_API_TOKEN}`
+    Authorization:`Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`
   }
 }
 try{
-const res = await fetch ("http://127.0.0.1:1337/api/blogs",options)
+  const res = await fetch (`${process.env.NEXT_PUBLIC_API_URL}api/blogs`,options)
 const format = await res.json()
 console.log(format,"format")
 }catch(err){
